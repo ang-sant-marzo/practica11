@@ -37,6 +37,25 @@
             <label>Base imponible</label>
             <input type="number" formControlName="baseImponible">
         </div>
+        <div class="input-row">
+            <label>% IVA</label>
+            <select formControlName="tipoIVA">
+                <option value=0>0 %</option>
+                <option value=0.04>4 %</option>
+                <option value=0.1>10 %</option>
+                <option value=0.21>21 %</option>
+            </select>
+        </div>
+        <div class="input-row">
+            <label>Importe IVA</label>
+            <!-- <input type="number" formControlName="importeIVA" readonly> -->
+            <input type="number" [value]="importeIVA" readonly> <!-- Esta opción permite implementar un pipe-->
+        </div>
+        <div class="input-row">
+            <label>Total Factura</label>
+            <!-- <input type="number" formControlName="totalFra" readonly> -->
+            <input type="number" [value]="totalFra" readonly>
+        </div>
     </form>
     <pre>{{formFra.value | json}}</pre>
     <pre>{{formFra.controls.cliente.errors | json}}</pre>
