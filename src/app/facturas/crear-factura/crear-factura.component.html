@@ -5,11 +5,14 @@
         <div class="input-row">
             <label>
                 Cliente
-                <span class="alert" *ngIf="formFra.controls.cliente.errors && formFra.controls.cliente.errors.required">
-                    Campo obligatorio
+                <span class="alert" *ngIf="formFra.controls.cliente.dirty && formFra.controls.cliente.errors && formFra.controls.cliente.errors.required">
+                    *
                 </span>
-                <span class="alert" *ngIf="formFra.controls.cliente.errors && formFra.controls.cliente.errors.minlength">
+                <span class="alert" *ngIf="formFra.controls.cliente.dirty && formFra.controls.cliente.errors && formFra.controls.cliente.errors.minlength">
                     El nombre del cliente debe tener más de 4 caractéres
+                </span>
+                <span class="valid" *ngIf="formFra.controls.cliente.valid">
+                    &#10003;
                 </span>
             </label>
             <input type="text" formControlName="cliente">
