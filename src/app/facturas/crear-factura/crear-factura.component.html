@@ -1,0 +1,32 @@
+<div class="card l">
+    <h1>Ejemplo de formulario driven/reactive</h1>
+    <hr>
+    <form [formGroup]="formFra">
+        <div class="input-row">
+            <label>
+                Cliente
+                <span class="alert" *ngIf="formFra.controls.cliente.errors && formFra.controls.cliente.errors.required">
+                    Campo obligatorio
+                </span>
+                <span class="alert" *ngIf="formFra.controls.cliente.errors && formFra.controls.cliente.errors.minlength">
+                    El nombre del cliente debe tener más de 4 caractéres
+                </span>
+            </label>
+            <input type="text" formControlName="cliente">
+        </div>
+        <div class="input-row">
+            <label>CIF</label>
+            <input type="text" formControlName="cif">
+        </div>
+        <div class="input-row">
+            <label>Fecha</label>
+            <input type="date" formControlName="fecha">
+        </div>
+        <div class="input-row">
+            <label>Base imponible</label>
+            <input type="number" formControlName="baseImponible">
+        </div>
+    </form>
+    <pre>{{formFra.value | json}}</pre>
+    <pre>{{formFra.controls.cliente.errors | json}}</pre>
+</div>
