@@ -18,8 +18,16 @@
             <input type="text" formControlName="cliente">
         </div>
         <div class="input-row">
-            <label>CIF</label>
-            <input type="text" formControlName="cif">
+            <label>
+                CIF
+                <span class="alert" *ngIf="formFra.controls.cif.errors && formFra.controls.cif.errors.invalidCif">
+                    {{formFra.controls.cif.errors.mensaje}}
+                </span>
+                <span class="valid" *ngIf="formFra.controls.cif.valid">
+                    &#10003;
+                </span>
+            </label>
+            <input type="text" formControlName="cif" maxlength=9>
         </div>
         <div class="input-row">
             <label>Fecha</label>
